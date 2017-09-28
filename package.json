@@ -10,13 +10,20 @@
         ],
         "plugins": {
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-inappbrowser": {}
+            "cordova-plugin-inappbrowser": {},
+            "cordova-plugin-customurlscheme": {
+                "URL_SCHEME": "reachfive-demo",
+                "ANDROID_SCHEME": " ",
+                "ANDROID_HOST": " ",
+                "ANDROID_PATHPREFIX": "/"
+            }
         }
     },
     "dependencies": {
         "cordova-android": "^6.2.3",
         "cordova-browser": "^4.1.0",
         "cordova-ios": "~4.4.0",
+        "cordova-plugin-customurlscheme": "^4.3.0",
         "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-whitelist": "^1.3.2"
     }

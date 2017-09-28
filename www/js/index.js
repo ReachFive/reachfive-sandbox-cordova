@@ -35,7 +35,7 @@ var app = {
         reach5('showSocialLogin', {
             container: 'reachfive-login',
             auth: {
-              redirectUri: 'http://localhost/index.html',
+              redirectUri: 'reachfive-demo://login/callback',
               responseType: 'token'
             }
         });
