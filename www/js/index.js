@@ -32,7 +32,7 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        reach5('showSocialLogin', {
+        reach5('showAuth', {
             container: 'reachfive-login',
             auth: {
               redirectUri: 'reachfive-demo://login/callback',
