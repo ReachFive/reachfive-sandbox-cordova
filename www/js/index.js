@@ -27,16 +27,16 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-    },
+        document.addEventListener("online", this.onOnline.bind(this), false);
+        document.addEventListener("resume", this.onResume.bind(this), false);
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
+        loadReachFiveScript();
+
         reach5('showAuth', {
             container: 'reachfive-login',
             auth: {
-              redirectUri: 'reachfive-demo://login/callback',
-              responseType: 'token'
+                redirectUri: 'reachfive-demo://login/callback',
+                responseType: 'token'
             }
         });
         reach5('on', 'authenticated', function(authResult) {
@@ -44,13 +44,25 @@ var app = {
             document.getElementById('login-result').innerHTML = 'Logged in as ' + name;
             document.getElementById('clear-button').style.display = 'inline';
         });
-        document.getElementById('clear-button').addEventListener('click', function(event) {
-            document.getElementById('login-result').innerHTML = '';
-            document.getElementById('clear-button').style.display = 'none';
-            event.preventDefault();
-        }, false);
+    },
+
+    onOnline: function() {
+        loadReachFiveScript();
+    },
+
+    onResume: function () {
+        loadReachFiveScript();
     }
 };
+
+function loadReachFiveScript() {
+    window.reach5=window.reach5||function(){(reach5.q=reach5.q||[]).push(arguments)};
+    if (!window.reach5.loaded) {
+        var script = document.createElement("script");
+        script.src = 'https://sandbox-raas.og4.me/js/v1/identity.js';
+        document.body.appendChild(script);
+    }
+}
 
 console.log('Start test app');
 
