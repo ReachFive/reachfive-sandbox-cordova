@@ -59,7 +59,8 @@ function loadReachFiveScript() {
     window.reach5=window.reach5||function(){(reach5.q=reach5.q||[]).push(arguments)};
     if (!window.reach5.loaded) {
         var script = document.createElement("script");
-        script.src = 'https://sandbox-raas.og4.me/js/v1/identity.js';
+        script.setAttribute('type', 'text/javascript');
+        script.src = 'https://local-raas.og4.me/js/v1/identity.js?client_id=sg48CdAYohRPeRWZ9j1H';
         document.body.appendChild(script);
     }
 }
