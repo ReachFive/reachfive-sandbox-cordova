@@ -31,22 +31,24 @@ Replace `local-raas.og4.me` by your account's domain and `sg48CdAYohRPeRWZ9j1H` 
 
 ## Run the application
 
-Build the sandbox for all platforms:
+> In the commands below, replace `<platform>` by the desired platform's name:  `browser`, `ios` or `android`.
+
+Add the platform to the project:
 ```
-./cordova build
+./cordova platform add <platform>
 ```
 
-You can optionally limit the scope of each build to a specific platform ('ios' or 'android):
+Build the sandbox for the platform:
 ```
-./cordova build ios
-```
-
-List the available targets on a specific platform:
-```
-./cordova run ios --list
+./cordova build <platform>
 ```
 
-Run a specific target of emulator:
+List the available targets on the platform:
+```
+./cordova run <platform> --list
+```
+
+Run a specific target of emulator (here an exemple with iOS):
 ```
 ./cordova run ios --target="iPhone-8, 13.2"
 ```
