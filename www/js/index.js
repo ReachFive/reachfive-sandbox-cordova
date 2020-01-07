@@ -32,12 +32,23 @@ var app = {
 
         loadReachFiveScript();
 
-        reach5('showAuth', {
-            container: 'reachfive-login',
-            auth: {
+        // reach5('showAuth', {
+        //     container: 'reachfive-login',
+        //     auth: {
+        //         redirectUri: 'reachfive-demo://login/callback',
+        //         responseType: 'token'
+        //     }
+        // });
+
+        reach5('showSocialLogin', {
+            container: 'social-buttons-container',
+            socialProviders: [
+                'facebook',
+                'google'
+              ],
+              auth: {
                 redirectUri: 'reachfive-demo://login/callback',
-                responseType: 'token'
-            }
+              }
         });
         reach5('on', 'authenticated', function(authResult) {
             var name = authResult.idTokenPayload.name || authResult.idTokenPayload.email;
@@ -60,7 +71,7 @@ function loadReachFiveScript() {
     if (!window.reach5.loaded) {
         var script = document.createElement("script");
         script.setAttribute('type', 'text/javascript');
-        script.src = 'https://local-raas.og4.me/js/v1/identity.js?client_id=sg48CdAYohRPeRWZ9j1H';
+        script.src = 'https://local-sandbox.og4.me/js/v1/identity.js?client_id=sg48CdAYohRPeRWZ9j1H';
         document.body.appendChild(script);
     }
 }
